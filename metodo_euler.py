@@ -6,6 +6,7 @@ Aproximación numérica: Método de Euler
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 def solucion_analitica(t, y0):
     return y0 * np.exp(t)
 
@@ -28,14 +29,11 @@ y0 = 1
 h = 0.2
 n = int((1 - t0) / h)
 
-# Solución numérica con Euler
 t_euler, y_euler = euler(f, t0, y0, h, n)
 
-# Solución exacta
 t_exacta = np.linspace(t0, 1, 100)
 y_exacta = solucion_analitica(t_exacta, y0)
 
-# Gráfica
 plt.plot(t_exacta, y_exacta, label='Solución exacta', color='blue')
 plt.plot(t_euler, y_euler, 'o--', label='Euler', color='red')
 plt.xlabel('t')
